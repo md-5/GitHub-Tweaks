@@ -23,15 +23,10 @@ $('.gm-tag').click(function() {
     textBox.focus();
     var quote = "";
 
-    var location = window.location.href;
-    if (location.indexOf('#') != -1) { 
-        location = location.substring(0, location.indexOf('#'));
-    }
-
     $(comment + ' .comment-body p').each(function() {
         quote += '\n>' + $(this).text();
     });
 
-    textBox.val(textBox.val() + '@' + user  + ' ' + location + comment + quote + '\n\n');
+    textBox.val(textBox.val() + '@' + user  + ' ' + $(location).attr('href').split('#')[0] + comment + quote + '\n\n');
     return false;
 });
