@@ -4,6 +4,7 @@
 // @description Including quoting and tagging of replies.
 // @include     *://github.com/*
 // @version     2
+// @grant       none
 // ==/UserScript==
 
 $('.discussion-bubble-inner').each(function() {
