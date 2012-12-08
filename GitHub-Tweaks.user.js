@@ -26,6 +26,7 @@ $('.gm-tag').click(function() {
     $(comment + ' .comment-body p').each(function() {
         quote += '\n>' + $(this).text();
     });
+    quote = quote.replace(/ \w*(?=#commitcomment-)/gi, ' ' + $(location).attr('href').split('#')[0]);
 
     textBox.val(textBox.val() + '@' + user  + ' ' + $(location).attr('href').split('#')[0] + comment + quote + '\n\n');
     return false;
