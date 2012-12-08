@@ -4,6 +4,7 @@
 // @description Including quoting and tagging of replies.
 // @include *://github.com/*
 // @version 4
+// @grant       none
 // ==/UserScript==
 
 function addJQuery(callback) {
@@ -40,6 +41,8 @@ function main() {
         jQ(comment + ' .comment-body p').each(function() {
             quote += '\n>' + jQ(this).text();
         });
+
+        quote = quote.replace(/ \w*(?=#commitcomment-)/gi, ' ' + $(location).attr('href').split('#')[0]);
 
         textBox.val(textBox.val() + '@' + user + ' ' + jQ(location).attr('href').split('#')[0] + comment + quote + '\n\n');
         return false;
