@@ -3,8 +3,7 @@
 // @namespace   md_5
 // @description Including quoting and tagging of replies.
 // @include     *://github.com/*
-// @version     2
-// @grant       none
+// @version     3
 // ==/UserScript==
 
 $('.discussion-bubble-inner').each(function() {
@@ -27,8 +26,6 @@ $('.gm-tag').click(function() {
     $(comment + ' .comment-body p').each(function() {
         quote += '\n>' + $(this).text();
     });
-
-    quote = quote.replace(/ \w*(?=#commitcomment-)/gi, ' ' + $(location).attr('href').split('#')[0]);
 
     textBox.val(textBox.val() + '@' + user  + ' ' + $(location).attr('href').split('#')[0] + comment + quote + '\n\n');
     return false;
