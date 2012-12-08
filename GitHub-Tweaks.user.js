@@ -27,6 +27,6 @@ $('.gm-tag').click(function() {
         quote += '\n>' + $(this).text();
     });
 
-    textBox.val(textBox.val() + '@' + user  + ' ' + $(location).attr('href') + comment + quote + '\n\n');
+    textBox.val(textBox.val() + '@' + user  + ' ' + $(location).attr('href').split('#')[0] + comment + quote + '\n\n');
     return false;
 });
